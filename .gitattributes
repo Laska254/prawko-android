@@ -1,0 +1,14 @@
+# Store text files with LF line endings; gradlew must stay LF to run on Linux/macOS
+* text=auto eol=lf
+
+# Windows scripts need CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files - never diff or convert
+*.jar binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.ttf binary
+*.otf binary
