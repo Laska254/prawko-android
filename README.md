@@ -80,7 +80,7 @@ Instrumented tests (requires a connected device or emulator)
 
 `./gradlew connectedAndroidTest`
 
-Android lint (report in `app/build/reports/`)
+Android lint (report in `app/build/reports/`; any warning fails the build, dependency version checks are informational only)
 
 `./gradlew lint`
 
