@@ -9,6 +9,7 @@
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
     + [Code style](#code-style)
+    + [Dependency updates](#dependency-updates)
 * [Usage](#usage)
 
 ---
@@ -97,6 +98,19 @@ Format code
 Check formatting (run in CI)
 
 `./gradlew spotlessCheck`
+
+### Dependency updates
+
+[Dependabot](https://docs.github.com/en/code-security/dependabot) checks for updates weekly and opens pull requests
+labelled `dependencies`:
+
+* Gradle - the version catalog (`gradle/libs.versions.toml`), settings plugins and the Gradle Wrapper. AndroidX and
+  Compose, AGP and Kotlin, test libraries, and code style tools (Spotless, ktlint, Compose rules) are each grouped into
+  one pull request.
+* GitHub Actions - all actions in `.github/workflows/` in one pull request.
+
+Releases younger than 7 days are skipped. Configuration: `.github/dependabot.yml`. `compileSdk`, `targetSdk` and the
+Gradle daemon JDK (`gradle/gradle-daemon-jvm.properties`) are not covered and are updated by hand.
 
 ---
 

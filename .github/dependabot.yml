@@ -1,0 +1,42 @@
+version: 2
+
+updates:
+  # Version catalog (gradle/libs.versions.toml), settings plugins and the Gradle wrapper
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Skip releases younger than a week: broken or compromised versions are usually pulled by then
+    cooldown:
+      default-days: 7
+    labels: [ "dependencies" ]
+    # A dependency goes to the first group it matches, so test libraries come before androidx
+    groups:
+      test:
+        patterns:
+          - "junit:*"
+          - "androidx.test*"
+      build-tools:
+        patterns:
+          - "com.android*"
+          - "org.jetbrains.kotlin*"
+      androidx:
+        patterns:
+          - "androidx.*"
+      code-style:
+        patterns:
+          - "com.diffplug.spotless*"
+          - "com.pinterest.ktlint*"
+          - "io.nlopez.compose.rules*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    labels: [ "dependencies" ]
+    groups:
+      actions:
+        patterns:
+          - "*"
