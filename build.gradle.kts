@@ -12,7 +12,7 @@ spotless {
         target("**/*.kt")
         targetExclude("**/build/**")
         ktlint(libs.versions.ktlint.get())
-            .customRuleSets(listOf("io.nlopez.compose.rules:ktlint:${libs.versions.composeRules.get()}"))
+            .customRuleSets(listOf(libs.compose.rules.ktlint.get().let { "${it.module}:${it.version}" }))
     }
     kotlinGradle {
         target("**/*.gradle.kts")
