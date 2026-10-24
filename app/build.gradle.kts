@@ -34,6 +34,11 @@ android {
     buildFeatures {
         compose = true
     }
+    lint {
+        warningsAsErrors = true
+        // Version checks stay informational so a new upstream release doesn't fail the build.
+        informational += setOf("GradleDependency", "AndroidGradlePluginVersion", "OldTargetApi")
+    }
 }
 
 dependencies {
