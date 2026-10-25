@@ -27,6 +27,11 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+# Not a dependency of the app: Spotless's ktlint() takes only a version (build.gradle.kts), so this entry is declared
+# only so Dependabot sees its coordinates and updates the ktlint version.
+ktlint-cli = { group = "com.pinterest.ktlint", name = "ktlint-cli", version.ref = "ktlint" }
+# Compose rules ruleset for ktlint, passed to Spotless in build.gradle.kts.
+compose-rules-ktlint = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "composeRules" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
